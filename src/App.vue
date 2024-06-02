@@ -35,7 +35,21 @@ export default {
   <div :id="$style.app">
     <header></header>
     <main>
-      <ApartmentsList :items="apartments" />
+      <ApartmentsList :items="apartments">
+        <template v-slot:default>Default slot</template>
+        <template v-slot:title>New title </template>
+        <template v-slot:description> New description </template>
+        <template v-slot:apartment="{ apartment }">
+          <ApartmentsItem
+            :key="apartment.id"
+            :description="apartment.description"
+            :price="apartment.price"
+            :rating="apartment.rating"
+            :imgSrc="apartment.imgUrl"
+            class="apartments-list__item"
+          />
+        </template>
+      </ApartmentsList>
     </main>
     <footer></footer>
   </div>

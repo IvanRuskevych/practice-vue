@@ -49,7 +49,7 @@ export default {
   //width: 33.333%;
   max-width: 350px;
   padding: 0 15px;
-  //margin-bottom: 30px; // передав d ApartmentsList через class="apartments-list__item"
+  margin-bottom: 30px; // краще зробити в ApartmentsList через class="apartments-list__item"
 
   &__inner {
     position: relative;
