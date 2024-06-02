@@ -16,11 +16,10 @@ defineEmits(["update:modelValue"]);
 
 .custom-input {
   padding: 8px 15px;
-  min-width: 220px;
+  width: 220px;
   min-height: 44px;
   outline: none;
   border: 2px solid $main-color;
-  font-size: 18px;
 
   font-family: "Montserrat Medium", sans-serif;
   font-size: 18px;

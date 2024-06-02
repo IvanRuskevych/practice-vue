@@ -3,15 +3,17 @@ import ApartmentsItem from "@/components/apartment/ApartmentItem.vue";
 import ApartmentsList from "@/components/apartment/ApartmentsList.vue";
 import apartments from "@/components/apartment/apartments.js";
 import CustomInput from "@/components/shared/CustomInput.vue";
+import CustomSelect from "@/components/shared/CustomSelect.vue";
 
 export default {
   name: "App",
-  components: { CustomInput, ApartmentsList, ApartmentsItem },
+  components: { CustomSelect, CustomInput, ApartmentsList, ApartmentsItem },
 
   data() {
     return {
       apartments,
       searchText: "",
+      selectedOption: "",
     };
   },
 
@@ -26,8 +28,14 @@ export default {
 <template>
   <div :id="$style.app">
     <header>
+      <h3>CustomInput: {{ searchText }}</h3>
       <CustomInput v-model="searchText" />
-      <h3>{{ searchText }}</h3>
+
+      <h3>CustomSelect: {{ selectedOption }}</h3>
+      <CustomSelect
+        v-model="selectedOption"
+        :options="['value', 'label', 'select']"
+      />
     </header>
     <main>
       <ApartmentsList :items="apartments">
