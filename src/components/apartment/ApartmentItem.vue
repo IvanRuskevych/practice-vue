@@ -1,5 +1,5 @@
 <script>
-import StarRating from "@/components/apartments/StarRating.vue";
+import StarRating from "@/components/StarRating.vue";
 
 export default {
   name: "ApartmentsItem",
@@ -49,7 +49,7 @@ export default {
   //width: 33.333%;
   max-width: 350px;
   padding: 0 15px;
-  margin-bottom: 30px;
+  //margin-bottom: 30px; // передав d ApartmentsList через class="apartments-list__item"
 
   &__inner {
     position: relative;
@@ -75,7 +75,11 @@ export default {
 
   &__description {
     margin-bottom: 20px;
-    max-height: calc(1em * 1.4 * 3);
+    // обмеження тексту по кількості рядків
+    // 1.4 - line-height = 22.4 line-height / 16 font-size
+    // 3 - кількість бажаних строк
+    // calc(1em * 1.4 * 3) - завжди буде показувати 3 рядки з текстом
+    height: calc(1em * 1.4 * 5);
     overflow: hidden;
   }
 
