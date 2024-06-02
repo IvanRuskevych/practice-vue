@@ -2,14 +2,16 @@
 import ApartmentsItem from "@/components/apartment/ApartmentItem.vue";
 import ApartmentsList from "@/components/apartment/ApartmentsList.vue";
 import apartments from "@/components/apartment/apartments.js";
+import CustomInput from "@/components/shared/CustomInput.vue";
 
 export default {
   name: "App",
-  components: { ApartmentsList, ApartmentsItem },
+  components: { CustomInput, ApartmentsList, ApartmentsItem },
 
   data() {
     return {
       apartments,
+      searchText: "",
       apartment: {
         id: "12345",
         title: "Apartment 1",
@@ -39,7 +41,16 @@ export default {
 
 <template>
   <div :id="$style.app">
-    <header></header>
+    <header>
+      <h2>{{ searchText }}</h2>
+      <CustomInput v-model="searchText" />
+      <!--      <input type="text" v-model="text" />-->
+      <!--      <input-->
+      <!--        type="text"-->
+      <!--        :value="text"-->
+      <!--        @input="(event) => (text = event.target.value)"-->
+      <!--      />-->
+    </header>
     <main>
       <ApartmentsList :items="apartments">
         <template v-slot:default>Default slot</template>
@@ -64,9 +75,8 @@ export default {
 
 <style module>
 #app {
-  font-family: Montserrat, sans-serif;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
