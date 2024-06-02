@@ -1,11 +1,15 @@
 <script>
 import ApartmentsItem from "@/components/apartment/ApartmentItem.vue";
+import ApartmentsList from "@/components/apartment/ApartmentsList.vue";
+import apartments from "@/components/apartment/apartments.js";
 
 export default {
   name: "App",
-  components: { ApartmentsItem },
+  components: { ApartmentsList, ApartmentsItem },
+
   data() {
     return {
+      apartments,
       apartment: {
         id: "12345",
         title: "Apartment 1",
@@ -31,12 +35,7 @@ export default {
   <div :id="$style.app">
     <header></header>
     <main>
-      <ApartmentsItem
-        :description="apartment.description"
-        :price="apartment.price"
-        :rating="apartment.rating"
-        imgSrc="https://1.img-dpreview.com/files/p/TS1200x900~sample_galleries/3122460596/1608601223.jpg"
-      />
+      <ApartmentsList :items="apartments" />
     </main>
     <footer></footer>
   </div>
