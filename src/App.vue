@@ -12,28 +12,12 @@ export default {
     return {
       apartments,
       searchText: "",
-      apartment: {
-        id: "12345",
-        title: "Apartment 1",
-        description:
-          "Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, aliquam ea eaque eligendi, enim et ipsa molestias nemo nulla quasi rem repellendus sunt tempore veritatis!",
-        price: 12345,
-        rating: 4.5,
-        location: {
-          city: "Kyiv",
-        },
-        owner: {
-          name: "Owner 1",
-          phone: "123-456-7890",
-          email: "owner@example.com",
-        },
-      },
     };
   },
 
   methods: {
     handleItemClick() {
-      console.log("use $emit() for item click");
+      console.log("item click");
     },
   },
 };
@@ -42,20 +26,11 @@ export default {
 <template>
   <div :id="$style.app">
     <header>
-      <h2>{{ searchText }}</h2>
       <CustomInput v-model="searchText" />
-      <!--      <input type="text" v-model="text" />-->
-      <!--      <input-->
-      <!--        type="text"-->
-      <!--        :value="text"-->
-      <!--        @input="(event) => (text = event.target.value)"-->
-      <!--      />-->
+      <h3>{{ searchText }}</h3>
     </header>
     <main>
       <ApartmentsList :items="apartments">
-        <template v-slot:default>Default slot</template>
-        <template v-slot:title>New title </template>
-        <template v-slot:description> New description </template>
         <template v-slot:apartment="{ apartment }">
           <ApartmentsItem
             :key="apartment.id"
