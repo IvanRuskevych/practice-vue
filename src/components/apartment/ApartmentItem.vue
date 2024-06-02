@@ -25,10 +25,22 @@ export default {
       default: "",
     },
   },
+
+  methods: {
+    log(idx, event) {
+      console.log("log(): ", idx, event);
+    },
+    handleLinkClick() {
+      console.log("facebook clicked");
+    },
+  },
 };
 </script>
 
 <template>
+  <!--  <div class="apartments-item" @click="log(2, $event)">-->
+  <!--  <div class="apartments-item" @click="$emit('click')">-->
+  <!--    vue 3: вже не потрібно привязувати через $emit() -->
   <div class="apartments-item">
     <div class="apartments-item__inner">
       <img :src="imgSrc" alt="" class="apartments-item__photo" />
@@ -38,6 +50,9 @@ export default {
           <StarRating :rating="rating" />
         </div>
         <div class="apartments-item__price">UAH {{ price }} per night</div>
+        <a href="https://facebook.com" @click.prevent.stop="handleLinkClick"
+          >FACEBOOK</a
+        >
       </div>
     </div>
   </div>

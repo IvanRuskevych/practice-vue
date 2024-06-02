@@ -28,6 +28,12 @@ export default {
       },
     };
   },
+
+  methods: {
+    handleItemClick() {
+      console.log("use $emit() for item click");
+    },
+  },
 };
 </script>
 
@@ -47,6 +53,7 @@ export default {
             :rating="apartment.rating"
             :imgSrc="apartment.imgUrl"
             class="apartments-list__item"
+            @click="handleItemClick"
           />
         </template>
       </ApartmentsList>
